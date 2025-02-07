@@ -1,6 +1,6 @@
 # Vue.js Pagination with EveryAction API
 
-This project demonstrates how to implement **paginated** fetching of event data from the EveryAction API. It consists of:
+**Paginated** fetching of event data from the EveryAction API. It consists of:
 
 1. **Proxy Server** (Serverless function / Node endpoint)  
 2. **Vue.js Component** that handles **state** and **UI** for displaying paginated events.
