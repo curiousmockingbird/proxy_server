@@ -1,13 +1,39 @@
-# GitHub Codespaces ♥️ Express
+# Vue.js Pagination with EveryAction API
 
-Welcome to your shiny new Codespace running Express! We've got everything fired up and running for you to explore Express.
+This project demonstrates how to implement **paginated** fetching of event data from the EveryAction API. It consists of:
 
-You've got a blank canvas to work on from a git perspective as well. There's a single initial commit with the what you're seeing right now - where you go from here is up to you!
+1. **Proxy Server** (Serverless function / Node endpoint)  
+2. **Vue.js Component** that handles **state** and **UI** for displaying paginated events.
 
-Everything you do here is contained within this one codespace. There is no repository on GitHub yet. If and when you’re ready you can click "Publish Branch" and we’ll create your repository and push up your project. If you were just exploring then and have no further need for this code then you can simply delete your codespace and it's gone forever.
+---
 
-To run this application:
+## Overview
 
-```
-npm start
-```
+- **Goal:** Show events in smaller, more manageable batches, giving the user the option to load more if needed.  
+- **Technologies:**
+  - **Vue.js** for the front-end UI.
+  - **Axios** for HTTP requests.
+  - **Node.js / Serverless Function** as a proxy to the EveryAction API.
+  - **EveryAction API** for the event data source.
+
+---
+
+## Features
+
+1. **Server-Side Pagination Parameters**
+   - The serverless (proxy) endpoint accepts a `page` query parameter and calculates `skip = page * pageSize`.
+   - Queries EveryAction with `&$top=pageSize&$skip=skip` to fetch the correct slice of events.
+   - Returns a JSON response containing:
+     - `items`: Array of events for the current page.
+     - `hasMore` or `nextPageLink` (optional): Indicates if additional pages remain.
+
+2. **Vue.js Pagination State**
+   - Maintains `currentPage`, `hasMore`, `loading`, and an array of `events`.
+   - Calls the proxy endpoint with `?page=${currentPage}` to fetch additional pages.
+   - Shows a “Load More” button if more events are available.
+
+3. **Responsive Event List**
+   - Displays a small batch (e.g., 10 events) initially, then appends more on demand.
+   - Improves performance, especially if the total number of events is large.
+
+---
