@@ -16,14 +16,14 @@ const handler = async (req, res) => {
   if (req.method === 'GET') {
     try {
       const page = parseInt(req.query.page, 10) || 1; // Default to page 0 if not provided
-      const pageSize = 10; // Number of events per page
-      const skip = (page -1 ) * pageSize;
+      const pageSize = 6; // Number of events per page
+      const skip = (page - 1) * pageSize;
 
       const nowUTC = new Date();
+      nowUTC.setDate(nowUTC.getDate() - 1); // go back one day
       const utcYear = nowUTC.getUTCFullYear();
       const utcMonth = String(nowUTC.getUTCMonth() + 1).padStart(2, '0');
       const utcDay = String(nowUTC.getUTCDate()).padStart(2, '0');
-
       const utcFormattedDate = `${utcYear}-${utcMonth}-${utcDay}`;
 
       const apiURL = `https://api.securevan.com/v4/events?codeIds=1027817&startingAfter=${utcFormattedDate}&$expand=locations%2Ccodes&$top=${pageSize}&$skip=${skip}`;
