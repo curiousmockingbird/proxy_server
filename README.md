@@ -4,6 +4,8 @@
 
 1. **Proxy Server** (Serverless function / Node endpoint)  
 2. **Vue.js Component** that handles **state** and **UI** for displaying paginated events.
+[Vue component repo here](https://github.com/curiousmockingbird/vdlf/blob/master/resources/scripts/components/EventListHome.vue)
+
 
 ---
 
