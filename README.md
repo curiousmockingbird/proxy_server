@@ -2,8 +2,8 @@
 
 **Paginated** fetching of event data from the EveryAction API. It consists of:
 
-1. **Proxy Server** (Serverless function / Node endpoint)  
-[2. **Vue.js Component** that handles **state** and **UI** for displaying paginated events](https://github.com/curiousmockingbird/vdlf/blob/master/resources/scripts/components/EventListHome.vue)
+1. **Proxy Server** (Serverless function / Node endpoint)
+2. [**Vue.js Component** that handles **state** and **UI** for displaying paginated events](https://github.com/curiousmockingbird/vdlf/blob/master/resources/scripts/components/EventListHome.vue)
 
 
 ---
